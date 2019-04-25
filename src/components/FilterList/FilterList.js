@@ -5,14 +5,15 @@ class FilterList extends Component {
     render() {
         const statusFilter = ["all", "alive", "dead", "unknown"];
         const genderFilter = ["male", "female", "unknown"];
-        const statusFilterRender = statusFilter.map(status =>
-            <label>
+
+        const statusFilterRender = statusFilter.map((status, i) =>
+            <label key={i}>
                 <input type="radio" value={status} name="status"/>
                 <span>{status}</span>
             </label>
         )
-        const genderFilterRender = genderFilter.map(gender =>
-            <label>
+        const genderFilterRender = genderFilter.map((gender, i) =>
+            <label key={i}>
                 <input type="radio" value={gender} name="status"/>
                 <span>{gender}</span>
             </label>
