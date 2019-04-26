@@ -35,7 +35,7 @@ class App extends Component {
     }
 
 
-    sort = (e) => {
+    sortFilter = (e) => {
         const value = e.target.value;
 
         if (e.target.name === FILTER_STATUS) {
@@ -65,6 +65,21 @@ class App extends Component {
         this.setState({sort});
     }
 
+
+    sortDescAsc = (e) => {
+        const sortDescAsc = this.state.sort === null ? this.state.list : this.state.sort
+
+        sortDescAsc.sort((nameA, nameB) => {
+            if (e.target.innerHTML === "Asc") {
+                if (nameA.name < nameB.name) return -1;
+            } else if (e.target.innerHTML === "Desc") {
+                if (nameA.name > nameB.name) return -1;
+            }
+        })
+        this.setState({sortDescAsc});
+
+    }
+
     render() {
         const {list, sort} = this.state;
 
@@ -74,7 +89,7 @@ class App extends Component {
                     <h1>Friend App ReactJS</h1>
                 </header>
                 <div className="container">
-                    <FilterList sort={this.sort}/>
+                    <FilterList sortFilter={this.sortFilter} sortDescAsc={this.sortDescAsc}/>
                     <CardList cards={sort === null ? list : sort}/>
                 </div>
             </div>

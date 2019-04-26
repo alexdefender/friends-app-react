@@ -9,13 +9,13 @@ class FilterList extends Component {
 
         const statusFilterRender = statusFilter.map((status, i) =>
             <label key={i}>
-                <input type="radio" value={status} name="status" onChange={this.props.sort}/>
+                <input type="radio" value={status} name="status" onChange={this.props.sortFilter}/>
                 <span>{status}</span>
             </label>
         )
         const genderFilterRender = genderFilter.map((gender, i) =>
             <label key={i}>
-                <input type="radio" value={gender} name="gender" onChange={this.props.sort}/>
+                <input type="radio" value={gender} name="gender" onChange={this.props.sortFilter}/>
                 <span>{gender}</span>
             </label>
         )
@@ -26,8 +26,8 @@ class FilterList extends Component {
                     <input type="form"/>
                 </section>
                 <section className="sort-wrapper">
-                    <button className="sort-btn">Desc</button>
-                    <button className="sort-btn">Asc</button>
+                    <button className="sort-btn" onClick={this.props.sortDescAsc}>Asc</button>
+                    <button className="sort-btn" onClick={this.props.sortDescAsc}>Desc</button>
                 </section>
                 <section className="filter-status">
                     <div>Status:</div>
