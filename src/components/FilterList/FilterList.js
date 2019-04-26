@@ -2,19 +2,20 @@ import React, {Component} from "react";
 import "./style.scss";
 
 class FilterList extends Component {
+
     render() {
-        const statusFilter = ["all", "alive", "dead", "unknown"];
-        const genderFilter = ["male", "female", "unknown"];
+        const statusFilter = ["All", "Alive", "Dead", "unknown"];
+        const genderFilter = ["All", "Male", "Female", "unknown"];
 
         const statusFilterRender = statusFilter.map((status, i) =>
             <label key={i}>
-                <input type="radio" value={status} name="status"/>
+                <input type="radio" value={status} name="status" onChange={this.props.sort}/>
                 <span>{status}</span>
             </label>
         )
         const genderFilterRender = genderFilter.map((gender, i) =>
             <label key={i}>
-                <input type="radio" value={gender} name="status"/>
+                <input type="radio" value={gender} name="gender" onChange={this.props.sort}/>
                 <span>{gender}</span>
             </label>
         )

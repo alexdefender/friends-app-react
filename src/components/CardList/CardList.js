@@ -3,17 +3,12 @@ import "./style.scss";
 import {CardItem} from "./CardItem"
 
 class CardList extends Component {
-    render() {
 
-        let arrCards = [];
-        for (let i in this.props.cards) {
-            arrCards.push(this.props.cards[i]);
-        }
+    render() {
 
         return this.props.cards !== null ? (
             <div className="card-wrapper">
-
-                {arrCards.map((card, i) => <CardItem key={i} card={card}/>)}
+                {Object.entries(this.props.cards).map((card, i) => <CardItem key={i} card={card[1]}/>)}
             </div>
         ) : "";
     }
