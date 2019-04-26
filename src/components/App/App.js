@@ -4,13 +4,19 @@ import {FilterList} from "../FilterList"
 import {CardList} from "../CardList"
 import {getDataFromApi} from "../../services/api"
 
+const FILTER_STATUS = "status";
+const FILTER_GENDER = "gender";
+const ALL_CARDS = "All";
+
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             list: [],
-            sort: []
+            sort: null,
         };
+        this.status = "";
+        this.gender = "";
     }
 
     async componentDidMount() {
@@ -25,32 +31,42 @@ class App extends Component {
                 status: item.status
             }
         })
-
-        console.log(list);
         this.setState({list});
     }
 
 
     sort = (e) => {
-        console.log(e.target)
-        console.log(this.state)
+        const value = e.target.value;
 
-        let sort;
-        if (e.target.value !== "All") {
-            sort = this.state.list.filter(card => card.status === e.target.value || card.gender === e.target.value);
-        } else {
-            sort = this.state.list;
+        if (e.target.name === FILTER_STATUS) {
+            this.status = value;
+            if (value === ALL_CARDS) {
+                this.status = "";
+            }
+        } else if (e.target.name === FILTER_GENDER) {
+            this.gender = value;
+            if (value === ALL_CARDS) {
+                this.gender = "";
+            }
         }
 
-        console.log(sort)
-        this.setState({sort})
+        let sort;
+
+        if (this.status === "" && this.gender === "") {
+            sort = this.state.list;
+        } else if (this.status === "") {
+            sort = this.state.list.filter(item => item.gender === this.gender);
+        } else if (this.gender === "") {
+            sort = this.state.list.filter(item => item.status === this.status);
+        } else {
+            sort = this.state.list.filter(item => item.status === this.status && item.gender === this.gender);
+        }
+
+        this.setState({sort});
     }
 
-
     render() {
-        const {list} = this.state;
-
-        // console.log(list[1]);
+        const {list, sort} = this.state;
 
         return (
             <div>
@@ -59,7 +75,7 @@ class App extends Component {
                 </header>
                 <div className="container">
                     <FilterList sort={this.sort}/>
-                    <CardList cards={list}/>
+                    <CardList cards={sort === null ? list : sort}/>
                 </div>
             </div>
         );
