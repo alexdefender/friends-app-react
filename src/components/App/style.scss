@@ -4,15 +4,12 @@
   color: rgba(8, 9, 9, 0.86);
 }
 
+$fontSize: 4em;
 $bgcolor: #6CC3C1;
 $color-yellow: #FBDA6C;
 $color-red: #EF7352;
 $transparent: rgba(255, 255, 255, 0);
 $shadow: 0px 0px 5px 0px $color-red;
-
-HTML {
-  height: 100%;
-}
 
 BODY {
   background: linear-gradient(45deg, $color-yellow 25%, $transparent 25%) 0 0,
@@ -33,12 +30,51 @@ BODY {
   font-family: 'Trebuchet MS', Verdana, sans-serif;
 }
 
-h1 {
-  padding-top: 1em;
-  padding-left: 0.5em;
-}
-
 .container {
   display: flex;
   margin: 1em;
+}
+
+.header {
+  height: 5em;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 500px;
+}
+
+#ui {
+  transform-style: preserve-3d;
+  .text {
+    position: absolute;
+    font-size: $fontSize;
+    line-height: $fontSize;
+    mix-blend-mode: screen;
+    transform-style: preserve-3d;
+    @for $i from 1 through 26 {
+      $key: $i - 1;
+      $param: 5;
+      &:nth-child(#{$i}) {
+        clip-path: polygon(
+                        -30% + ($key * $param) 0,
+                        -20% + ($key * $param) 0,
+                        10% + ($key * $param) 100%,
+                        0% + ($key * $param) 100%
+        );
+        animation: wave 2000ms $key * 200 - 10000ms ease-in-out infinite alternate;
+      }
+    }
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9) rotateX(20deg) rotateY(20deg);
+    color: $color-yellow;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.1) rotateX(0deg) rotateY(0deg);
+    color: $bgcolor;
+  }
 }

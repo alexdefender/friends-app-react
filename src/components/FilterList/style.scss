@@ -65,6 +65,7 @@
 
       &:checked + span {
         color: $color-red;
+        font-weight: 700;
       }
     }
   }
