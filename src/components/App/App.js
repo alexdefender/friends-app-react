@@ -13,7 +13,8 @@ class App extends Component {
         super(props);
         this.state = {
             list: [],
-            sort: null,
+            sort: undefined,
+            searchFromInput: undefined
         };
         this.status = "";
         this.gender = "";
@@ -34,6 +35,25 @@ class App extends Component {
         this.setState({list});
     }
 
+    searchFromInput = (e) => {
+        const searchFromInput = this.state.list.filter(item => item.name.toLowerCase().includes(e.target.value));
+
+        this.setState({sort: searchFromInput});
+        this.setState({searchFromInput});
+    }
+
+    sortDescAsc = (e) => {
+        const sortDescAsc = this.state.sort === null ? this.state.list : this.state.sort
+
+        sortDescAsc.sort((nameA, nameB) => {
+            if (e.target.innerHTML === "Asc") {
+                if (nameA.name < nameB.name) return -1;
+            } else if (e.target.innerHTML === "Desc") {
+                if (nameA.name > nameB.name) return -1;
+            }
+        })
+        this.setState({sortDescAsc});
+    }
 
     sortFilter = (e) => {
         const value = e.target.value;
@@ -50,38 +70,29 @@ class App extends Component {
             }
         }
 
+        const state = (this.state.searchFromInput !== undefined) ? this.state.searchFromInput : this.state.list;
+
+        // console.log({state})
         let sort;
 
         if (this.status === "" && this.gender === "") {
-            sort = this.state.list;
+            sort = this.state.searchFromInput;
         } else if (this.status === "") {
-            sort = this.state.list.filter(item => item.gender === this.gender);
+            sort = state.filter(item => item.gender === this.gender);
         } else if (this.gender === "") {
-            sort = this.state.list.filter(item => item.status === this.status);
+            sort = state.filter(item => item.status === this.status);
         } else {
-            sort = this.state.list.filter(item => item.status === this.status && item.gender === this.gender);
+            sort = state.filter(item => item.status === this.status && item.gender === this.gender);
         }
+        console.log(sort)
 
         this.setState({sort});
     }
 
 
-    sortDescAsc = (e) => {
-        const sortDescAsc = this.state.sort === null ? this.state.list : this.state.sort
-
-        sortDescAsc.sort((nameA, nameB) => {
-            if (e.target.innerHTML === "Asc") {
-                if (nameA.name < nameB.name) return -1;
-            } else if (e.target.innerHTML === "Desc") {
-                if (nameA.name > nameB.name) return -1;
-            }
-        })
-        this.setState({sortDescAsc});
-
-    }
-
     render() {
         const {list, sort} = this.state;
+
 
         return (
             <div>
@@ -89,8 +100,9 @@ class App extends Component {
                     <h1>Friend App ReactJS</h1>
                 </header>
                 <div className="container">
-                    <FilterList sortFilter={this.sortFilter} sortDescAsc={this.sortDescAsc}/>
-                    <CardList cards={sort === null ? list : sort}/>
+                    <FilterList searchFromInput={this.searchFromInput} sortDescAsc={this.sortDescAsc}
+                                sortFilter={this.sortFilter}/>
+                    <CardList cards={sort === undefined ? list : sort}/>
                 </div>
             </div>
         );

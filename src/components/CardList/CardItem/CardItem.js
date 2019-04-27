@@ -12,8 +12,8 @@ class CardItem extends Component {
                 <h3 className="name">{name}</h3>
                 <p><img src={image} alt=""/></p>
                 <ul className="user-card__info">
-                    <li><strong>Gender:</strong> {gender}</li>
                     <li><strong>Species:</strong> {species}</li>
+                    <li><strong>Gender:</strong> {gender}</li>
                     <li><strong>Status:</strong> {status}</li>
                     <li><strong>Location:</strong> {location}</li>
                 </ul>

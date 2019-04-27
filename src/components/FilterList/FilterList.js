@@ -23,7 +23,7 @@ class FilterList extends Component {
         return (
             <section className="filters">
                 <section className="search">
-                    <input type="form"/>
+                    <input type="form" onChange={this.props.searchFromInput} />
                 </section>
                 <section className="sort-wrapper">
                     <button className="sort-btn" onClick={this.props.sortDescAsc}>Asc</button>
