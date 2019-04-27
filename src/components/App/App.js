@@ -43,7 +43,7 @@ class App extends Component {
     }
 
     sortDescAsc = (e) => {
-        const sortDescAsc = this.state.sort === null ? this.state.list : this.state.sort
+        const sortDescAsc = this.state.sort === undefined ? this.state.list : this.state.sort
 
         sortDescAsc.sort((nameA, nameB) => {
             if (e.target.innerHTML === "Asc") {
@@ -92,7 +92,6 @@ class App extends Component {
 
     render() {
         const {list, sort} = this.state;
-
 
         return (
             <div>

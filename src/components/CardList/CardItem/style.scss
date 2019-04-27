@@ -1,11 +1,14 @@
+@import "../../App/style";
+
 .user-card {
-  border: 1px solid #8d8d8d;
+  border: 2px solid $color-red;
   margin: 0.5em;
   padding: 0.5em;
   width: 15em;
+  background-color: $color-yellow;
 
   &:hover {
-    border-color: rgb(87, 87, 255);
+    box-shadow: $shadow;
     cursor: pointer;
   }
 
