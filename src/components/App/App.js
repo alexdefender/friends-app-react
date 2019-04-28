@@ -93,17 +93,10 @@ class App extends Component {
     render() {
         const {list, sort} = this.state;
 
-        let logo = [];
-        for (let i = 0; i < 26; i++) {
-            logo.push("FreandsAppReact");
-        }
-
         return (
             <div>
                 <header className="header">
-                    <div id="ui">
-                        {logo.map(logo => <div className="text">{logo}</div>)}
-                    </div>
+                    <h1 className="header__text">FreandsAppReact</h1>
                 </header>
                 <div className="container">
                     <FilterList searchFromInput={this.searchFromInput} sortDescAsc={this.sortDescAsc}

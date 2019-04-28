@@ -36,45 +36,41 @@ BODY {
 }
 
 .header {
-  height: 5em;
-  overflow: hidden;
+  min-height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  perspective: 500px;
-}
+  height: 6em;
 
-#ui {
-  transform-style: preserve-3d;
-  .text {
-    position: absolute;
-    font-size: $fontSize;
-    line-height: $fontSize;
-    mix-blend-mode: screen;
-    transform-style: preserve-3d;
-    @for $i from 1 through 26 {
-      $key: $i - 1;
-      $param: 5;
-      &:nth-child(#{$i}) {
-        clip-path: polygon(
-                        -30% + ($key * $param) 0,
-                        -20% + ($key * $param) 0,
-                        10% + ($key * $param) 100%,
-                        0% + ($key * $param) 100%
-        );
-        animation: wave 2000ms $key * 200 - 10000ms ease-in-out infinite alternate;
-      }
-    }
-  }
-}
-
-@keyframes wave {
-  0% {
-    transform: translate(-50%, -50%) scale(0.9) rotateX(20deg) rotateY(20deg);
+  .header__text {
+    font-size: 4em;
+    text-align: center;
+    line-height: 1;
     color: $color-yellow;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1.1) rotateX(0deg) rotateY(0deg);
-    color: $bgcolor;
+    animation: neon .08s ease-in-out infinite alternate;
   }
 }
+
+@keyframes neon {
+  from {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.92),
+    0 0 30px rgba(202, 228, 225, 0.34),
+    0 0 12px rgba(30, 132, 242, 0.52),
+    0 0 21px rgba(30, 132, 242, 0.92),
+    0 0 34px rgba(30, 132, 242, 0.78),
+    0 0 54px rgba(30, 132, 242, 0.92);
+  }
+  to {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.98),
+    0 0 30px rgba(202, 228, 225, 0.42),
+    0 0 12px rgba(30, 132, 242, 0.58),
+    0 0 22px rgba(30, 132, 242, 0.84),
+    0 0 38px rgba(30, 132, 242, 0.88),
+    0 0 60px rgba(30, 132, 242, 1);
+  }
+}
+
+
+
+
