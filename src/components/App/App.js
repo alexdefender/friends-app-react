@@ -4,6 +4,8 @@ import {FilterList} from "../FilterList"
 import {CardList} from "../CardList"
 import {getDataFromApi} from "../../services/api"
 
+const SORT_DESC = "Desc";
+const SORT_ASC = "Asc"
 const FILTER_STATUS = "status";
 const FILTER_GENDER = "gender";
 const ALL_CARDS = "All";
@@ -46,9 +48,9 @@ class App extends Component {
         const sortDescAsc = this.state.sort === undefined ? this.state.list : this.state.sort;
 
         sortDescAsc.sort((nameA, nameB) => {
-            if (target.innerHTML === "Asc") {
+            if (target.innerHTML === SORT_ASC) {
                 if (nameA.name < nameB.name) return -1;
-            } else if (target.innerHTML === "Desc") {
+            } else if (target.innerHTML === SORT_DESC) {
                 if (nameA.name > nameB.name) return -1;
             }
         })
@@ -72,7 +74,6 @@ class App extends Component {
 
         const state = (this.state.searchFromInput !== undefined) ? this.state.searchFromInput : this.state.list;
 
-        // console.log({state})
         let sort;
 
         if (this.status === "" && this.gender === "") {
@@ -88,7 +89,6 @@ class App extends Component {
 
         this.setState({sort});
     }
-
 
     render() {
         const {list, sort} = this.state;

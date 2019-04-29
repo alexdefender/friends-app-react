@@ -29,12 +29,12 @@ class FilterList extends Component {
                     <button className="sort-btn" onClick={this.props.sortDescAsc}>Asc</button>
                     <button className="sort-btn" onClick={this.props.sortDescAsc}>Desc</button>
                 </section>
-                <section className="filter-status">
+                <section className="filter">
                     <div><strong>Status:</strong></div>
                     {statusFilterRender}
                 </section>
 
-                <section className="filter-gender">
+                <section className="filter">
                     <div><strong>Gender:</strong></div>
                     {genderFilterRender}
                 </section>

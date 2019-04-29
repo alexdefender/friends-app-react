@@ -13,18 +13,9 @@ $shadow: 0px 0px 5px 0px $color-red;
 
 BODY {
   background: linear-gradient(45deg, $color-yellow 25%, $transparent 25%) 0 0,
-  linear-gradient(45deg,
-                  $transparent 75%,
-                  $color-yellow 75%
-  ) 0 0,
-  linear-gradient(45deg,
-      $transparent 75%,
-      $color-yellow 75%
-      ) -3em 3em,
-  linear-gradient(45deg,
-                  $color-yellow 25%,
-                  $transparent 25%
-  ) 3em -3em;
+  linear-gradient(45deg, $transparent 75%, $color-yellow 75%) 0 0,
+  linear-gradient(45deg, $transparent 75%, $color-yellow 75%) -3em 3em,
+  linear-gradient(45deg, $color-yellow 25%, $transparent 25%) 3em -3em;
   background-size: 6em 6em;
   background-color: $bgcolor;
   font-family: 'Trebuchet MS', Verdana, sans-serif;
@@ -70,7 +61,3 @@ BODY {
     0 0 60px rgba(30, 132, 242, 1);
   }
 }
-
-
-
-

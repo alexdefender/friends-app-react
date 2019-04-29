@@ -4,7 +4,6 @@ import "./style.scss";
 class CardItem extends Component {
 
     render() {
-        // console.log(true)
         const {name, image, gender, location, species, status} = this.props.card;
 
         return (

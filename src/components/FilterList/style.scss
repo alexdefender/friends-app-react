@@ -13,10 +13,8 @@
       background: $color-yellow;
 
       &:focus {
-        //border: 0;
         box-shadow: $shadow;
       }
-
 
       &::-webkit-input-placeholder {
         color: $color-red;
@@ -41,14 +39,17 @@
     }
   }
 
-  .filter-status,
-  .filter-gender {
+  .filter {
     display: flex;
     flex-direction: column;
     margin: 1em 0 1em 0;
     background-color: $color-yellow;
     border: 2px solid $color-red;
     padding: 1em;
+
+    &:hover {
+      box-shadow: $shadow;
+    }
 
     div {
       margin-bottom: 0.5em;
