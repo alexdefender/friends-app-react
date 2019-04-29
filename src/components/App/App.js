@@ -96,7 +96,7 @@ class App extends Component {
         return (
             <div>
                 <header className="header">
-                    <h1 className="header__text">Freands App React</h1>
+                    <h1 className="header__text">Friends App React</h1>
                 </header>
                 <div className="container">
                     <FilterList searchFromInput={this.searchFromInput} sortDescAsc={this.sortDescAsc}
