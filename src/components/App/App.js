@@ -35,35 +35,35 @@ class App extends Component {
         this.setState({list});
     }
 
-    searchFromInput = (e) => {
-        const searchFromInput = this.state.list.filter(item => item.name.toLowerCase().includes(e.target.value));
+    searchFromInput = ({target}) => {
+        const searchFromInput = this.state.list.filter(item => item.name.toLowerCase().includes(target.value));
 
         this.setState({sort: searchFromInput});
         this.setState({searchFromInput});
     }
 
-    sortDescAsc = (e) => {
-        const sortDescAsc = this.state.sort === undefined ? this.state.list : this.state.sort
+    sortDescAsc = ({target}) => {
+        const sortDescAsc = this.state.sort === undefined ? this.state.list : this.state.sort;
 
         sortDescAsc.sort((nameA, nameB) => {
-            if (e.target.innerHTML === "Asc") {
+            if (target.innerHTML === "Asc") {
                 if (nameA.name < nameB.name) return -1;
-            } else if (e.target.innerHTML === "Desc") {
+            } else if (target.innerHTML === "Desc") {
                 if (nameA.name > nameB.name) return -1;
             }
         })
         this.setState({sortDescAsc});
     }
 
-    sortFilter = (e) => {
-        const value = e.target.value;
+    sortFilter = ({target}) => {
+        const value = target.value;
 
-        if (e.target.name === FILTER_STATUS) {
+        if (target.name === FILTER_STATUS) {
             this.status = value;
             if (value === ALL_CARDS) {
                 this.status = "";
             }
-        } else if (e.target.name === FILTER_GENDER) {
+        } else if (target.name === FILTER_GENDER) {
             this.gender = value;
             if (value === ALL_CARDS) {
                 this.gender = "";
