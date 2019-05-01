@@ -36,17 +36,16 @@ class App extends Component {
   };
 
   sortDescAsc = ({ target }) => {
-    const sortDescAsc =
-      this.state.sort === null ? this.state.list : this.state.sort;
+    this.state.sort = this.state.sort || this.state.list;
 
-    sortDescAsc.sort((nameA, nameB) => {
+    this.state.sort.sort((nameA, nameB) => {
       if (target.value === SORT_ASC) {
         if (nameA.name < nameB.name) return -1;
       } else if (target.value === SORT_DESC) {
         if (nameA.name > nameB.name) return -1;
       }
     });
-    this.setState({ sortDescAsc });
+    this.setState({ sort: this.state.sort });
   };
 
   sortFilter = ({ target }) => {

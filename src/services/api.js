@@ -14,7 +14,6 @@ export const getDataFromApi = async () => {
         status: item.status
       };
     });
-    console.log(list);
     return list;
   } catch (err) {
     console.log(err);
