@@ -16,7 +16,9 @@ class App extends Component {
     this.state = {
       list: [],
       sort: null,
-      searchFromInput: null
+      searchFromInput: null,
+      status: "",
+      gender: ""
     };
     this.status = "";
     this.gender = "";
@@ -52,6 +54,9 @@ class App extends Component {
 
     if (name === FILTER_STATUS) {
       this.status = value;
+      this.setState(state => ({
+          status: value
+      }));
       if (value === ALL_CARDS) {
         this.status = "";
       }
@@ -61,6 +66,8 @@ class App extends Component {
         this.gender = "";
       }
     }
+
+    console.log(this.state)
 
     const state =
       this.state.searchFromInput !== null
