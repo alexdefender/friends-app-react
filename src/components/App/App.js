@@ -36,16 +36,15 @@ class App extends Component {
   };
 
   sortDescAsc = ({ target }) => {
-    this.state.sort = this.state.sort || this.state.list;
-
-    this.state.sort.sort((nameA, nameB) => {
-      if (target.value === SORT_ASC) {
-        if (nameA.name < nameB.name) return -1;
-      } else if (target.value === SORT_DESC) {
-        if (nameA.name > nameB.name) return -1;
-      }
-    });
-    this.setState({ sort: this.state.sort });
+    this.setState(state => ({
+      sort: (state.sort || state.list).sort((nameA, nameB) => {
+        if (target.value === SORT_ASC) {
+          if (nameA.name < nameB.name) return -1;
+        } else if (target.value === SORT_DESC) {
+          if (nameA.name > nameB.name) return -1;
+        }
+      })
+    }));
   };
 
   sortFilter = ({ target }) => {
