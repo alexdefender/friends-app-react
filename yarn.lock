@@ -1278,7 +1278,7 @@ ajv@^6.1.0, ajv@^6.5.3, ajv@^6.5.5, ajv@^6.9.1:
 
 alphanum-sort@^1.0.0:
   version "1.0.2"
-  resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
+  resolved "https://registry.yarnpkg.com/alphanum-sortList/-/alphanum-sortList-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
 amdefine@>=0.0.4:
@@ -6741,7 +6741,7 @@ normalize-url@^1.0.0:
     object-assign "^4.0.1"
     prepend-http "^1.0.0"
     query-string "^4.1.0"
-    sort-keys "^1.0.0"
+    sortList-keys "^1.0.0"
 
 normalize-url@^3.0.0:
   version "3.3.0"
@@ -7623,7 +7623,7 @@ postcss-minify-params@^4.0.2:
   resolved "https://registry.yarnpkg.com/postcss-minify-params/-/postcss-minify-params-4.0.2.tgz#6b9cef030c11e35261f95f618c90036d680db874"
   integrity sha512-G7eWyzEx0xL4/wiBBJxJOz48zAKV2WG3iZOqVhPet/9geefm/Px5uo1fzlHu+DOjT+m0Mmiz3jkQzVHe6wxAWg==
   dependencies:
-    alphanum-sort "^1.0.0"
+    alphanum-sortList "^1.0.0"
     browserslist "^4.0.0"
     cssnano-util-get-arguments "^4.0.0"
     postcss "^7.0.0"
@@ -7635,7 +7635,7 @@ postcss-minify-selectors@^4.0.2:
   resolved "https://registry.yarnpkg.com/postcss-minify-selectors/-/postcss-minify-selectors-4.0.2.tgz#e2e5eb40bfee500d0cd9243500f5f8ea4262fbd8"
   integrity sha512-D5S1iViljXBj9kflQo4YutWnJmwm8VvIsU1GeXJGiG9j8CIg9zs4voPMdQDUmIxetUOh60VilsNzCiAFTOqu3g==
   dependencies:
-    alphanum-sort "^1.0.0"
+    alphanum-sortList "^1.0.0"
     has "^1.0.0"
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
@@ -7924,7 +7924,7 @@ postcss-unique-selectors@^4.0.1:
   resolved "https://registry.yarnpkg.com/postcss-unique-selectors/-/postcss-unique-selectors-4.0.1.tgz#9446911f3289bfd64c6d680f073c03b1f9ee4bac"
   integrity sha512-+JanVaryLo9QwZjKrmJgkI4Fn8SBgRO6WXQBJi7KiAVPlmxikB5Jzc4EvXMT2H0/m0RjrVVm9rGNhZddm/8Spg==
   dependencies:
-    alphanum-sort "^1.0.0"
+    alphanum-sortList "^1.0.0"
     postcss "^7.0.0"
     uniqs "^2.0.0"
 
@@ -9091,7 +9091,7 @@ sockjs@0.3.19:
 
 sort-keys@^1.0.0:
   version "1.1.2"
-  resolved "https://registry.yarnpkg.com/sort-keys/-/sort-keys-1.1.2.tgz#441b6d4d346798f1b4e49e8920adfba0e543f9ad"
+  resolved "https://registry.yarnpkg.com/sortList-keys/-/sortList-keys-1.1.2.tgz#441b6d4d346798f1b4e49e8920adfba0e543f9ad"
   integrity sha1-RBttTTRnmPG05J6JIK37oOVD+a0=
   dependencies:
     is-plain-obj "^1.0.0"
