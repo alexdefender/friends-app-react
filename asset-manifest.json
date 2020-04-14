@@ -1,13 +1,13 @@
 {
-  "main.css": "/friends-app-react/static/css/main.320a3fee.chunk.css",
-  "main.js": "/friends-app-react/static/js/main.cc5c89bc.chunk.js",
-  "main.js.map": "/friends-app-react/static/js/main.cc5c89bc.chunk.js.map",
-  "runtime~main.js": "/friends-app-react/static/js/runtime~main.0946bdaa.js",
-  "runtime~main.js.map": "/friends-app-react/static/js/runtime~main.0946bdaa.js.map",
-  "static/js/2.0a583b26.chunk.js": "/friends-app-react/static/js/2.0a583b26.chunk.js",
-  "static/js/2.0a583b26.chunk.js.map": "/friends-app-react/static/js/2.0a583b26.chunk.js.map",
+  "main.css": "/friends-app-react/static/css/main.75b0d244.chunk.css",
+  "main.js": "/friends-app-react/static/js/main.6040b200.chunk.js",
+  "main.js.map": "/friends-app-react/static/js/main.6040b200.chunk.js.map",
+  "runtime~main.js": "/friends-app-react/static/js/runtime~main.bb24d09e.js",
+  "runtime~main.js.map": "/friends-app-react/static/js/runtime~main.bb24d09e.js.map",
+  "static/js/2.5af118be.chunk.js": "/friends-app-react/static/js/2.5af118be.chunk.js",
+  "static/js/2.5af118be.chunk.js.map": "/friends-app-react/static/js/2.5af118be.chunk.js.map",
   "index.html": "/friends-app-react/index.html",
-  "precache-manifest.ce249e3e00a3a3bbcfef3dbb0bd79d17.js": "/friends-app-react/precache-manifest.ce249e3e00a3a3bbcfef3dbb0bd79d17.js",
+  "precache-manifest.d380c6c6d270c5ecb2390ef05b94b30b.js": "/friends-app-react/precache-manifest.d380c6c6d270c5ecb2390ef05b94b30b.js",
   "service-worker.js": "/friends-app-react/service-worker.js",
-  "static/css/main.320a3fee.chunk.css.map": "/friends-app-react/static/css/main.320a3fee.chunk.css.map"
+  "static/css/main.75b0d244.chunk.css.map": "/friends-app-react/static/css/main.75b0d244.chunk.css.map"
 }
