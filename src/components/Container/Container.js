@@ -14,49 +14,86 @@ class App extends Component {
         this.activeFilters = {
             name: '',
             sort: '',
-            status: '',
-            gender: '',
+            status: {},
+            gender: {},
         };
+        this.page = 1;
+        this.isFreeFilters = true;
+        this.heightForUpdList = 1000;
     }
 
     componentDidMount() {
         this.setList();
+        window.addEventListener('scroll', this.handleScroll);
     }
 
-    async setList() {
-        const list = await getDataFromApi();
-        this.setState({ list });
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
+
+    handleScroll = () => {
+        this.isFreeFilters = Object.values(this.activeFilters).every(
+            (filter) => filter === '' || Object.keys(filter).length === 0
+        );
+
+        this.heightForUpdList = this.list.clientHeight - window.pageYOffset;
+
+        if (this.heightForUpdList < 805 && this.isFreeFilters) {
+            this.setList(this.page++);
+        }
+        // console.log(this.list.clientHeight - window.pageYOffset);
+        // console.log(this.list.clientHeight);
+        // console.log(window.pageYOffset);
+    };
+
+    async setList(page) {
+        const list = await getDataFromApi(page);
+        this.setState({ list: [...this.state.list, ...list] });
     }
 
     sortByName = (e) => {
         e.stopPropagation();
 
         const name = e.target.value.toLowerCase();
-        this.activeFilters = { ...this.activeFilters, name };
+        this.activeFilters.name = name;
         this.applyFilters();
     };
 
     sortByDesc = (e) => {
         e.stopPropagation();
-        this.activeFilters = { ...this.activeFilters, sort: 'desc' };
+        this.activeFilters.sort = 'desc';
         this.applyFilters();
     };
 
     sortByAsc = (e) => {
         e.stopPropagation();
-        this.activeFilters = { ...this.activeFilters, sort: 'asc' };
+        this.activeFilters.sort = 'asc';
         this.applyFilters();
     };
 
     sortByStatus = (e) => {
         e.stopPropagation();
-        this.activeFilters = { ...this.activeFilters, status: e.target.value };
+        const { value, checked } = e.target;
+
+        if (this.activeFilters.status[value] === undefined) {
+            this.activeFilters.status[value] = checked;
+        } else {
+            delete this.activeFilters.status[value];
+        }
+
         this.applyFilters();
     };
 
     sortByGender = (e) => {
         e.stopPropagation();
-        this.activeFilters = { ...this.activeFilters, gender: e.target.value };
+        const { value, checked } = e.target;
+
+        if (this.activeFilters.gender[value] === undefined) {
+            this.activeFilters.gender[value] = checked;
+        } else {
+            delete this.activeFilters.gender[value];
+        }
+
         this.applyFilters();
     };
 
@@ -65,8 +102,8 @@ class App extends Component {
         this.activeFilters = {
             name: '',
             sort: '',
-            status: '',
-            gender: '',
+            status: {},
+            gender: {},
         };
         this.applyFilters();
     };
@@ -93,12 +130,16 @@ class App extends Component {
             });
         }
 
-        if (status !== '') {
-            sortedList = sortedList.filter((item) => item.status === status);
+        if (Object.keys(status).length > 0) {
+            sortedList = sortedList.filter((item) =>
+                Object.keys(status).includes(item.status)
+            );
         }
 
-        if (gender !== '') {
-            sortedList = sortedList.filter((item) => item.gender === gender);
+        if (Object.keys(gender).length > 0) {
+            sortedList = sortedList.filter((item) =>
+                Object.keys(gender).includes(item.gender)
+            );
         }
 
         this.setState({ sortedList });
@@ -121,8 +162,14 @@ class App extends Component {
                         sortByStatus={this.sortByStatus}
                         sortByGender={this.sortByGender}
                         resetFilters={this.resetFilters}
+                        activeFilters={this.activeFilters}
                     />
-                    <CardList cards={sortedList === null ? list : sortedList} />
+                    <CardList
+                        ref={(el) => {
+                            this.list = el;
+                        }}
+                        cards={sortedList === null ? list : sortedList}
+                    />
                 </div>
             </div>
         );

@@ -2,14 +2,14 @@ import React from 'react';
 import './CardList.scss';
 import { CardItem } from './CardItem';
 
-const CardList = ({ cards }) => {
+const CardList = React.forwardRef(({ cards }, ref) => {
     return (
-        <div className='card-wrapper'>
+        <ul className='card-wrapper' ref={ref}>
             {cards.map((card, i) => (
                 <CardItem key={i} card={card} />
             ))}
-        </div>
+        </ul>
     );
-};
+});
 
 export default CardList;

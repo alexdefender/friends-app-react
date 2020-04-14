@@ -5,7 +5,7 @@ const CardItem = ({ card }) => {
     const { name, image, gender, location, species, status } = card;
 
     return (
-        <section className='user-card'>
+        <li className='user-card'>
             <h3 className='name'>{name}</h3>
             <p>
                 <img src={image} alt='' />
@@ -24,7 +24,7 @@ const CardItem = ({ card }) => {
                     <b>Location:</b> {location.name}
                 </li>
             </ul>
-        </section>
+        </li>
     );
 };
 

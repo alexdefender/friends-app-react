@@ -14,6 +14,7 @@ const Filters = ({
     sortByStatus,
     sortByGender,
     resetFilters,
+    activeFilters,
 }) => {
     return (
         <section className='filters'>
@@ -23,13 +24,15 @@ const Filters = ({
                 <FilterBtn name='Desc' value='desc' handleClick={sortByDesc} />
             </div>
             <Filter
-                name='Status'
+                header='Status'
                 values={statusValues}
+                checked={activeFilters.status}
                 handleChange={sortByStatus}
             />
             <Filter
-                name='Gender'
+                header='Gender'
                 values={genderValues}
+                checked={activeFilters.gender}
                 handleChange={sortByGender}
             />
             <FilterBtn
