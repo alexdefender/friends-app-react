@@ -1,13 +1,13 @@
 {
-  "main.css": "/friends-app-react/static/css/main.88330f54.chunk.css",
-  "main.js": "/friends-app-react/static/js/main.750c423a.chunk.js",
-  "main.js.map": "/friends-app-react/static/js/main.750c423a.chunk.js.map",
+  "main.css": "/friends-app-react/static/css/main.8dc58fd1.chunk.css",
+  "main.js": "/friends-app-react/static/js/main.42993986.chunk.js",
+  "main.js.map": "/friends-app-react/static/js/main.42993986.chunk.js.map",
   "runtime~main.js": "/friends-app-react/static/js/runtime~main.bb24d09e.js",
   "runtime~main.js.map": "/friends-app-react/static/js/runtime~main.bb24d09e.js.map",
-  "static/js/2.5af118be.chunk.js": "/friends-app-react/static/js/2.5af118be.chunk.js",
-  "static/js/2.5af118be.chunk.js.map": "/friends-app-react/static/js/2.5af118be.chunk.js.map",
+  "static/js/2.37dd3ab4.chunk.js": "/friends-app-react/static/js/2.37dd3ab4.chunk.js",
+  "static/js/2.37dd3ab4.chunk.js.map": "/friends-app-react/static/js/2.37dd3ab4.chunk.js.map",
   "index.html": "/friends-app-react/index.html",
-  "precache-manifest.2dcbcef01e810871c9a3452cd2f8652a.js": "/friends-app-react/precache-manifest.2dcbcef01e810871c9a3452cd2f8652a.js",
+  "precache-manifest.3c8e502ad30471809a13a96e22b99bac.js": "/friends-app-react/precache-manifest.3c8e502ad30471809a13a96e22b99bac.js",
   "service-worker.js": "/friends-app-react/service-worker.js",
-  "static/css/main.88330f54.chunk.css.map": "/friends-app-react/static/css/main.88330f54.chunk.css.map"
+  "static/css/main.8dc58fd1.chunk.css.map": "/friends-app-react/static/css/main.8dc58fd1.chunk.css.map"
 }
