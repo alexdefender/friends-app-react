@@ -18,7 +18,7 @@ class App extends Component {
             gender: {},
         };
         this.page = 1;
-        this.isFreeFilters = true;
+        this.freeFilters = true;
         this.heightForUpdList = 1000;
     }
 
@@ -32,24 +32,24 @@ class App extends Component {
     }
 
     handleScroll = () => {
-        this.isFreeFilters = Object.values(this.activeFilters).every(
-            (filter) => filter === '' || Object.keys(filter).length === 0
-        );
-
+        this.freeFilters = this.isFreeFilters();
         this.heightForUpdList = this.list.clientHeight - window.pageYOffset;
 
-        if (this.heightForUpdList < 805 && this.isFreeFilters) {
-            this.setList(this.page++);
+        if (this.heightForUpdList < 805 && this.freeFilters) {
+            this.page++;
+            this.setList();
         }
-        // console.log(this.list.clientHeight - window.pageYOffset);
-        // console.log(this.list.clientHeight);
-        // console.log(window.pageYOffset);
     };
 
-    async setList(page) {
-        const list = await getDataFromApi(page);
+    async setList() {
+        const list = await getDataFromApi(this.page);
         this.setState({ list: [...this.state.list, ...list] });
     }
+
+    isFreeFilters = () =>
+        Object.values(this.activeFilters).every(
+            (filter) => filter === '' || Object.keys(filter).length === 0
+        );
 
     sortByName = (e) => {
         e.stopPropagation();
@@ -111,6 +111,13 @@ class App extends Component {
     applyFilters = () => {
         const { list } = this.state;
         const { name, sort, status, gender } = this.activeFilters;
+        this.freeFilters = this.isFreeFilters();
+
+        if (this.freeFilters) {
+            this.setState({ sortedList: null });
+            return;
+        }
+
         let sortedList = JSON.parse(JSON.stringify(list));
 
         if (name !== '') {
