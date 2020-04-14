@@ -1,0 +1,16 @@
+@import '../../../styles/variables.scss';
+
+.filter-btn {
+    cursor: pointer;
+    background-color: $color-yellow;
+    border-radius: 10px;
+    border: 2px solid $color-red;
+    color: $color-red;
+    font-size: 2vh;
+
+    @include focus();
+
+    &:hover {
+        box-shadow: $shadow;
+    }
+}

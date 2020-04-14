@@ -1,0 +1,38 @@
+@import '../../../styles/variables.scss';
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 2px solid $color-red;
+    border-radius: 10px;
+    background-color: $color-yellow;
+
+    div {
+        margin-bottom: 5px;
+    }
+
+    &:hover {
+        box-shadow: $shadow;
+    }
+
+    label,
+    input {
+        cursor: pointer;
+        margin: 3px 0;
+    }
+
+    span:hover {
+        color: $color-red;
+        font-weight: 700;
+    }
+
+    input {
+        display: none;
+
+        &:checked + span {
+            color: $color-red;
+            font-weight: 700;
+        }
+    }
+}
