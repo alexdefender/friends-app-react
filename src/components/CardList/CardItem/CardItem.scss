@@ -7,11 +7,7 @@
     border: 2px solid $color-red;
     border-radius: 10px;
     background-color: $color-yellow;
-    opacity: 0; /*Элемент полностью прозрачный (невидимый)*/
-    transition: 0.5s; /*Скорость перехода состояния элемента*/
-    animation: show 0.5s 1; /* Указываем название анимации, её время и количество повторов*/
-    animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
-    animation-delay: 0.5s; /* Задержка перед началом */
+    transition-duration: 0.5s; 
 
     &:hover {
         box-shadow: $shadow;
@@ -33,12 +29,12 @@
     }
 }
 
-@keyframes show {
-    0% {
-        opacity: 0;
-    }
+// @keyframes show {
+//     0% {
+//         opacity: 0;
+//     }
 
-    100% {
-        opacity: 1;
-    }
-}
+//     100% {
+//         opacity: 1;
+//     }
+// }
