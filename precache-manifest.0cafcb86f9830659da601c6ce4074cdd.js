@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "7e16121682dc46cb5489",
-    "url": "/friends-app-react/static/css/main.8dc58fd1.chunk.css"
+    "revision": "ca4234b335193691305e",
+    "url": "/friends-app-react/static/css/main.f067e811.chunk.css"
   },
   {
-    "revision": "7e16121682dc46cb5489",
+    "revision": "ca4234b335193691305e",
     "url": "/friends-app-react/static/js/main.1b7498dd.chunk.js"
   },
   {
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/friends-app-react/static/js/2.37dd3ab4.chunk.js"
   },
   {
-    "revision": "11b2ee8dfdfae8b96fa29ed695c1faf5",
+    "revision": "7f313e9acac1bd681fe1a033232fadf3",
     "url": "/friends-app-react/index.html"
   }
 ];
