@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/friends-app-react/precache-manifest.4059f44de878b83b16a33d2dee04a4c1.js"
+  "/friends-app-react/precache-manifest.9a76eeb29111d8675d127f7197c74134.js"
 );
 
 workbox.clientsClaim();
